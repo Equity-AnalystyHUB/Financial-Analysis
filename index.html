@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Scenario Analysis | 2026-2030</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-content">
+        <h1>Financial Scenario Analysis</h1>
+        <p class="header-subtitle">Five-Year Strategic Outlook | 2026-2030</p>
+      </div>
+      <button class="btn-comparison" id="toggleComparison">View Comparison</button>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="tabs" id="scenarioTabs">
+      <button class="tab active" data-scenario="base_case">Base Case</button>
+      <button class="tab" data-scenario="upside">Upside</button>
+      <button class="tab" data-scenario="downside">Downside</button>
+    </nav>
+
+    <!-- Main Dashboard View -->
+    <div class="dashboard-view" id="dashboardView">
+      <!-- KPI Cards Section -->
+      <section class="kpi-section">
+        <h2 class="section-title">Key Performance Indicators</h2>
+        <div class="kpi-grid" id="kpiGrid"></div>
+      </section>
+
+      <!-- Charts Section -->
+      <section class="charts-section">
+        <div class="chart-row">
+          <div class="chart-container">
+            <h3 class="chart-title">Revenue &amp; EBITDA Trajectory</h3>
+            <div class="chart-wrapper">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-container">
+            <h3 class="chart-title">Cash Flow &amp; Returns</h3>
+            <div class="chart-wrapper">
+              <canvas id="cashFlowChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="chart-row">
+          <div class="chart-container">
+            <h3 class="chart-title">Subscriber Growth &amp; Penetration</h3>
+            <div class="chart-wrapper">
+              <canvas id="subscriberChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-container">
+            <h3 class="chart-title">Payback Period &amp; ROI Evolution</h3>
+            <div class="chart-wrapper">
+              <canvas id="roiChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Returns Summary -->
+      <section class="returns-section">
+        <h2 class="section-title">Returns Summary</h2>
+        <div class="returns-grid" id="returnsGrid"></div>
+      </section>
+
+      <!-- Scenario Notes -->
+      <section class="notes-section">
+        <h2 class="section-title">Strategic Insights</h2>
+        <div class="notes-container" id="notesContainer"></div>
+      </section>
+    </div>
+
+    <!-- Comparison View -->
+    <div class="comparison-view hidden" id="comparisonView">
+      <h2 class="section-title">Scenario Comparison</h2>
+      
+      <div class="comparison-summary">
+        <div class="summary-card base">
+          <h3>Base Case</h3>
+          <div class="metric">
+            <span class="metric-label">2030 Subscribers</span>
+            <span class="metric-value">420K</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">2030 Revenue</span>
+            <span class="metric-value">$113.4M</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Terminal IRR</span>
+            <span class="metric-value">37%</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">5-Year ROI</span>
+            <span class="metric-value">1.72x</span>
+          </div>
+        </div>
+        
+        <div class="summary-card upside">
+          <h3>Upside</h3>
+          <div class="metric">
+            <span class="metric-label">2030 Subscribers</span>
+            <span class="metric-value">510K</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">2030 Revenue</span>
+            <span class="metric-value">$150.5M</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Terminal IRR</span>
+            <span class="metric-value">42%</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">5-Year ROI</span>
+            <span class="metric-value">1.60x</span>
+          </div>
+        </div>
+        
+        <div class="summary-card downside">
+          <h3>Downside</h3>
+          <div class="metric">
+            <span class="metric-label">2030 Subscribers</span>
+            <span class="metric-value">206K</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">2030 Revenue</span>
+            <span class="metric-value">$45.1M</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Terminal IRR</span>
+            <span class="metric-value">16%</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">5-Year ROI</span>
+            <span class="metric-value">0.48x</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison-table-container">
+        <table class="comparison-table" id="comparisonTable"></table>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
